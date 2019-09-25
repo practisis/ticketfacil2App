@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="ec.ticketfacil.appLectorBoletos" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>TICKETFACIL LECTOR</name>
+<widget id="ec.ticketfacil.appVentaEnLinea" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>TICKETFACIL</name>
     <description>
-        TicketFacilMovil
+        App para compras en linea de Ticketfacil.ec
     </description>
     <author email="fabricio@practisis.com" href="https://www.ticketfacil.ec/ticket2/">
         Fabricio Carrion 
