@@ -1,0 +1,44 @@
+.menu_seleccionado{ 
+	color:white !important;
+}
+
+#liGeneral{
+   color:#f7d200 !important;	
+}
+
+/* agregadas recien */
+#columnas.col-asiento, #columnas.col-descrip, #columnas.col-boleto, #columnas.col-unitario, #columnas.col-total, #aceptar, #portfolio .caption i{
+	color: #f7d200 !important;
+}
+/* agregadas recien */
+
+#xx{
+	color: #f7d200 !important; 
+	font-size: 15px !important; 
+	padding: 0 15px !important;
+}
+#yy{
+	color: #f7d200 !important; 
+	font-size: 15px !important; 
+	padding-bottom: 7px !important;
+}
+
+#locMap{
+    color:#f7d200 !important;
+}
+
+strong{
+	color:#f7d200 !important;
+}
+#botonAbrir{
+	color: #f7d200 !important; 
+}
+
+.secciones{
+	/*background-color:#01b3d5 !important;
+	color: #f7d200 !important;*/ 
+}
+
+.btn-localidad {
+   color: #f7d200 !important;
+}

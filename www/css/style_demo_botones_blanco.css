@@ -1,0 +1,255 @@
+#escenario{
+	/*color: #ddd7d7;*/
+	border:1px solid white;
+}
+hr{
+	border-color: white !important;
+}
+
+/* agregadas recien */
+.page-header{
+	border-bottom: 1px solid white !important;
+}
+
+#fila-1 ul li, #fila-2 ul li, #cmbpago, .btn-azul {
+    border: 1px solid white;
+}
+
+#datos-factura tbody tr td.borde, .asientosescogidos > .celda-added.col-asiento, .asientosescogidos > .celda-added.col-descrip, .asientosescogidos > .celda-added.col-boleto, .asientosescogidos > .celda-added.col-unitario, .asientosescogidos > .celda-added.col-total{
+	border: 1px solid white;
+}
+
+.sinBorde{
+	border: none !important;
+}
+
+#columnas, .relleno, #aceptar2, #info-documento2 {
+    background-color: white !important;
+    color: black !important;
+}
+
+#aceptar{
+	background-color: white !important;
+    color: white !important;
+	border-color:  white !important;
+}
+
+#aceptar, #portfolio .caption p, #portfolio .caption i, #btn-grabar{
+	background-color: white !important;
+}
+
+.btn_eliminar {
+	/*background-color: white !important;
+	border-color: black !important;
+	color: black !important;*/	
+}
+
+.tarjeta_new{
+	color: white;
+}
+
+#pagination li .secciones{
+	background-color: white !important;
+}
+/* agregadas recien */
+  
+.capitalized-text{
+	color: #fff;
+}
+#titull{
+	color: #fff !important;
+	border: white;
+}
+/*.container{
+	color: white !important;
+}*/
+
+#locMap{
+	
+	font-weight: bold; 
+	background-color: white !important; 
+	/*color:black !important;*/  
+	text-align: center !important; 
+	border-radius: 0px !important; 
+	border-color: white !important;
+}
+
+.list-group-item{
+	color: black !important;
+}
+
+#mapT{
+	font-weight: bold; 
+	background-color: white !important; 
+	/*color: black;*/ 
+	text-align: center !important; 
+	font-size: 14px !important; 
+	border: 2px white; 
+	border-radius: 0px !important;
+}
+
+#tablePriceTitle{
+	font-weight: bold; 
+	background-color: white !important; 
+	/*color:black;*/ 
+	text-align: center !important; 
+	font-size: 14px !important; 
+	border:1px white; 
+	border-radius: 0px !important;
+}
+#mapster_wrap_0{
+	display: block; 
+	position: relative; 
+	padding: 0px; 
+	width: 534px; 
+	height: 482px;
+	border:2px solid white;
+}
+
+#botonAbrir{
+	background-color:white;
+	/*color: black;*/ 
+}
+
+.tdLocali{
+	padding-left: 5px;
+	border: 2px solid white;
+}
+
+/*strong{
+	color:black !important;
+}*/
+
+.tdToLeft{
+	background-color:white !important;
+	/*color:black;*/
+	border-right:1px solid white;
+}
+
+i.arrow {
+    border: solid white;
+    border-width: 0 7px 7px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-top: 30px !important;
+}
+/*.secciones{
+	background-color:white !important; 
+	/*color: black !important;*/
+/*}*/
+.tdToCenter{
+	background-color:white !important;
+	/*color:black;*/
+	border-right:1px solid white;
+}
+.btn-localidad {
+  font-size: 11px !important;
+  /*color:black !important;*/
+  background-color: white !important;
+  margin-right:13.7px !important; 
+  margin-top: 5px !important;
+  margin-bottom: 10px !important;
+  border-color: white !important;
+}
+.tdToCenter{
+	background-color:white !important;
+	/*color:black;*/
+	border-right:1px solid white;
+}
+
+.finalTd{
+    background-color:white !important;
+	color:black;
+	border-right:1px solid white;	
+}
+
+.table-buy-tr{
+	background-color:white;
+}
+
+.a_boton{
+	padding-top: 8px;
+	border-radius:20px;
+	border:2px solid #e2e2e2;
+}
+
+.card-body > a{
+	padding-top: 8px;
+	border-radius:20px;
+	border:2px solid #e2e2e2;
+	width: 50%;
+}
+
+.btn {
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;
+	font-weight: 600;
+	width: 120px;
+	height: 40px;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-moz-transition: background .3s linear;
+	-webkit-transition: background .3s linear;
+	-o-transition: background .3s linear;
+	transition: background .3s linear;
+}
+
+.btn-azul{
+	background-color: #fff !important;
+}
+#buyOnlineTitle{
+	color: white !important;
+	font-weight: bold;
+	/*text-shadow: 4px 4px 2px rgba(255, 196, 5, 1);*/ 
+	font-weight: bold;
+}
+#h2TitleEvent{
+	text-transform:capitalize;
+	color: white !important;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    text-decoration: none;
+	-moz-transition: all linear .3s;
+	-webkit-transition: all linear .3s;
+	-o-transition: all linear .3s;
+	transition: all linear .3s;
+}
+
+.a_boton:hover{
+	background-color:#e2e2e2;
+	color:#333;
+}
+
+.menu_seleccionado{
+	background-color:white !important; 
+	padding-left: 0px !important; 
+	padding-right: 0px !important;
+	border-color: #eae6e6 !important;
+}
+
+/*span{
+	color: white !important;
+}*/
+
+#tdLoCar{
+	padding-left: 5px;
+	border: 2px solid white;
+}
+#datePrev{
+	padding-left: 5px;
+	border: 2px solid white;
+}
+#tdOpenLabel{
+	padding-left: 5px;
+	border: 2px solid white;
+}
+.table-responsive.buy{ 
+	border:1px solid white !important;
+}
+#color1{
+	color: white !important;
+}
