@@ -587,7 +587,7 @@
 			}
 			
 			#busca2{
-				display: inline-block; 
+				display: none; 
 				position: absolute; 
 				top: 18px; 
 				right: 77px;
@@ -823,13 +823,13 @@
 								</a>  
 							</div>
 							<div id="div-btn-menu" class="col-xs-7 col-visible-xs" style="display: inline-block;position:relative;z-index:2;">
-								<input id="busca2" class="form-control col-visible-xs" type="text" placeholder="Buscar evento...">
-								<button id="btn-menu" type="button" class="navbar-toggle collapsed" style="display: inline-block;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<input id="busca2" class="form-control col-visible-xs" type="text" placeholder="Buscar evento..." style = 'display:none;' >
+								<!--<button id="btn-menu" type="button" class="navbar-toggle collapsed" style="display: inline-block;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 									<span class="sr-only">Toggle navigation</span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
-								</button>
+								</button>-->
 							</div>
                         </div>  
                     </div>
@@ -889,10 +889,10 @@
 			<div id="menu-usuario" class="col-xs-12 col-sm-10">
 			    <ul>
 												<div id="lOut">
-								<li id="li-login" onclick="$('#myModal').modal('show'); ver();">
+								<li id="li-login" onclick="window.location = 'index.html' ">
 									<a name=""><label>LOGIN</label> &nbsp;<span id="span-login">|</span>&nbsp;</a>
 								</li>
-								<li id="li-crear" onclick="$('#myModal2').modal('show'); ver();"><!-- creaCuenta(); --><!-- $('#myModal2').modal('show'); ver(); -->  
+								<li id="li-crear" onclick="window.location = 'crear_cuenta.html' "><!-- creaCuenta(); --><!-- $('#myModal2').modal('show'); ver(); -->  
 									<a name=""><label >CREAR CUENTA</label></a><!-- style="color: #ec1568 !important;" -->
 								</li>
 							</div>
@@ -1079,7 +1079,7 @@
 	      </div>
 	      <div class="modal-footer">
 			<button onclick="enviarLogin()" type="button" style="position: relative;cursor:pointer;" class="btn btn-primary btn-login">Login</button>
-			<button onclick="creaCuenta()" type="button" style="position: relative;cursor:pointer;" class="btn btn-warning btn-login">Crear Cuenta</button>
+			<button onclick="window.location='crear_cuenta.html'" type="button" style="position: relative;cursor:pointer;" class="btn btn-warning btn-login">Crear Cuenta</button>
 			<button type="button" style="position: relative;cursor:pointer;" class="btn btn-danger btn-login" data-dismiss="modal" onclick = "window.location = '' ">Cerrar</button>
 	      <!--	<div class="row">
 	      		<div id="contenedor-redes-sociales" class="col-xs-12">
@@ -4097,7 +4097,10 @@ div.ref:first-child { display: block; }
 						var nombre = datos[2];
 						var email = datos[3];
 						var cedula = datos[4];
-						insertaCliente(idcliente,nombre,email,cedula);
+						var dir = datos[5];
+						var tel = datos[6];
+						var contrasena = datos[7];
+						insertaCliente(idcliente,nombre,email,cedula,dir,tel,contrasena);
 					}else if($.trim(data) == 'errorcli'){
 						setTimeout("$('#alerta1').fadeIn(); $('#error').modal('show');",1000);
 					}else if($.trim(data)=='ok1'){

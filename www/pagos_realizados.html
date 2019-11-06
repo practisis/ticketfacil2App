@@ -589,7 +589,7 @@
 			}
 			
 			#busca2{
-				display: inline-block; 
+				display: none; 
 				position: absolute; 
 				top: 18px; 
 				right: 77px;
@@ -1543,7 +1543,7 @@
 			}	    
 		</style>    
 			<div id="cuerpoEventos" style=""> 
-			<div class="row arrows-small" style="display: block;">
+			<div class="row arrows-small" style="display: none;">
 				<div class="col-xs-1"></div>
 				<div id="contenedor-mini-menu" class="col-xs-10 sinPadding margen-izq">
 					<div class="row">
@@ -1579,7 +1579,7 @@
 						</div>
 						<div class="col-xs-1"></div>	
 					</div>
-				</div>
+				</div> 
 				<div class="col-xs-1"></div>			
 			</div>
 				
@@ -1642,7 +1642,7 @@
 				
 				<!--<img style="position: absolute;left: 124px;width: 85%;height: 95%;" src="../../img_B/15621016031548943826fondo-blanco.jpg"/>-->
 				<br>
-				<div class="row">
+				<div class="row" style = 'display:none;'>
 					<div class="col-xs-1 col-md-1"></div>
 						<div class="col-xs-10 sinPadding margen-izq">
 							<div class="row">
@@ -1674,7 +1674,7 @@
 					<div class="col-xs-1 col-md-1"></div>
 				</div>
 				<br>
-				<div class="" id="contenedor-localidades">
+				<div class="" id="contenedor-localidades" style = 'display:none;' >
 					<div class="row">
 						<div class="col-xs-1 col-md-1"></div>
 						<div class="col-xs-10 col-md-10 sinPadding margen-izq">
@@ -1728,42 +1728,8 @@
 				<div id="dataTable" class = "row" >
 					<div class = "col-md-12">
 						<div class="container">
-							<table id="datos-factura" align="center" class="table-responsive buy">
-								<thead>	
-									<tr class="table-buy-tr">
-										<td id="cod-compra" class="table-ticket-buy-first" style = "width:120px !important;">
-											<strong>#</strong>
-										</td>
-										<td id="num-asiento" class="table-ticket-buy" style = "width:120px !important;">
-											<strong>Asiento #</strong>
-										</td>
-										<td id="descrip" class="table-ticket-buy" style = "width:120px !important;">
-											<strong>Desc.</strong>
-										</td>
-										<td id="num-boleto" class="table-ticket-buy" style = "width:70px !important;">
-											<strong>Cant</strong>
-										</td>
-										<td id="valor-unitario" class="table-ticket-buy" style = "width:100px !important;">
-											<strong>Pre</strong>
-										</td>
-										<td id="valor-total" class="table-ticket-buy" style = "width:100px !important;">
-											<strong>Total</strong>
-										</td>
-										<td id="eliminar" class="table-ticket-buy-last" style = "width:80px !important;">
-											<strong>Eliminar</strong>
-										</td>
-									</tr>
-								</thead>
-								<tbody id="seleccion" style="font-size: 8px;">
-													</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="7" align="right">
-											<button id="sendBill" onclick="sendBill();" type="button" class="btn btn-info btn-localidad">facturar</button>
-										</td>
-									</tr>
-								</tfoot>
-							</table>
+							<br><br>
+							<div id = "recibePagosWeb"></div>
 						</div>
 					</div>
 				</div>
@@ -1789,7 +1755,24 @@
 						</div>
 					</div>
 				</div>
-
+				<div class="modal fade" id="modal2_" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-md">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">Código QR</h4>
+							</div>
+							<div class="modal-body" style ="background-color: #fff;text-align: center">
+								<div id="container" class = "img_qr">
+									
+								</div>
+							</div>
+							<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
 				<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 				<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 				<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
@@ -2605,6 +2588,56 @@
 					$('#capaProtectora').css('z-index','-200');
 				});
 			}
+			
+			function verPdf(f){
+				window.open('https://www.ticketfacil.ec/ticket2developer/ticket/tcpdf/factura_pdf.php?f='+f+'','_blank');
+			}
+			function verQr(idf){
+				var cht = 'qr';
+				var chs = '150X150';
+				var chl = idf;
+				$.post("https://www.ticketfacil.ec/ticket2developer/ticket/demo_cliente/generaQR.php",{  
+					cht : cht , chs : chs , chl : chl
+				}).done(function(data){
+					$('.img_qr').html(data);
+					$('#modal2_').modal('show');
+				});
+				
+				//$('.modal-backdrop').remove();
+			}
+			
+			$(document).ready(function () {
+				bajarPagosWeb_qr();
+			});
+		
+		
+		
+			function bajarPagosWeb_qr(){
+				var db = window.openDatabase("Database", "1.0", "TicketMobileWeb", 200000);
+				db.transaction(function(tx){
+					tx.executeSql('select * from cliente;',[],function(tx,results){
+						var registros = results.rows.length;
+						var html = '';
+						if(registros > 0){
+							for(var i = 0; i < registros; i++){
+								var row = results.rows.item(i);
+								var idcliente = row.idcliente;
+								<!-- alert(idcliente); -->
+								$('#recibePagosWeb').html('<center>Espere, procesando informacion!!!<br><img src = "loading.gif" /></center>');
+								$.post("https://www.ticketfacil.ec/ticket2developer/ticket/apiWeb/apiQr2.php",{ 
+									idcliente : idcliente
+								}).done(function(data){
+									$('#recibePagosWeb').html(data);
+								});
+							}
+						}
+						
+					},errorCB,successCB); 
+				});
+			}
+			
+			
+			
 		</script> 	
 	</div>
 </body>
