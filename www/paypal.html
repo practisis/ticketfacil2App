@@ -821,17 +821,17 @@
 						<div class="row" style="margin-right: 0px; margin-left: 0px;">
 							<div id="contenedor-logo" class="col-xs-5 col-sm-12" style="padding-left: 0px; padding-right: 0px;">  							
 								<a class="navbar-brand">
-									<img onclick="window.location.href='index.php" src="15621011611558994606155026671015448460961532989648ticketfacilnegro.png" style = "width:80%;" />
+									<img onclick="window.location='index.html'" src="15621011611558994606155026671015448460961532989648ticketfacilnegro.png" style = "width:80%;" />
 								</a>  
 							</div>
 							<div id="div-btn-menu" class="col-xs-7 col-visible-xs" style="display: inline-block;position:relative;z-index:2;">
-								<input id="busca2" class="form-control col-visible-xs" type="text" placeholder="Buscar evento...">
-								<button id="btn-menu" type="button" class="navbar-toggle collapsed" style="display: inline-block;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<input id="busca2" class="form-control col-visible-xs" type="text" placeholder="Buscar evento..."  style = 'display:none;' >
+								<!--<button id="btn-menu" type="button" class="navbar-toggle collapsed" style="display: inline-block;" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 									<span class="sr-only">Toggle navigation</span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
-								</button>
+								</button>-->
 							</div>
                         </div>  
                     </div>
@@ -840,7 +840,7 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style = 'overflow: hidden; height: auto; z-index: 30000'>
 							<ul class="nav navbar-nav" id="menu1" style = "vertical-align:middle !important;">
 								<li id="home">
-								    <a href="index.php"><label>HOME</label> &nbsp;&nbsp; |</a>
+								    <a href="index.html"><label>HOME</label> &nbsp;&nbsp; |</a>
 								</li>
 								<li id="eventos" class="dropdown nivel1">  
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="background: transparent !important;">
@@ -861,19 +861,19 @@
 										<label>NOSOTROS</label><span class="caret"></span> &nbsp;&nbsp; |
 									</a>
 								    <ul id="menu-nosotros" class="dropdown-menu">
-									    <li><a href="index.php?modulo=quienes_somos">QUIENES SOMOS</a></li>
+									    <li><a href="index.html?modulo=quienes_somos">QUIENES SOMOS</a></li>
 									    <li role="separator" class="divider"></li>
-									    <li><a href="index.php?modulo=servicios">SERVICIOS/COTIZACIONES</a></li>
+									    <li><a href="index.html?modulo=servicios">SERVICIOS/COTIZACIONES</a></li>
 									    <li role="separator" class="divider"></li>
-									    <li><a href="index.php?modulo=contact">CONTÁCTENOS</a></li>
+									    <li><a href="index.html?modulo=contact">CONTÁCTENOS</a></li>
 									    <li role="separator" class="divider"></li>
-										<li><a href="index.php?modulo=terminos_condiciones">TÉRMINOS Y CONDICIONES</a></li>
+										<li><a href="index.html?modulo=terminos_condiciones">TÉRMINOS Y CONDICIONES</a></li>
 										<li role="separator" class="divider"></li>
 									</ul>
 								</li>
 											
 								<li id="puntos_venta">
-									<a href="index.php?modulo=puntos_venta"><label>PUNTOS DE VENTA</label> &nbsp;&nbsp; |</a>
+									<a href="index.html?modulo=puntos_venta"><label>PUNTOS DE VENTA</label> &nbsp;&nbsp; |</a>
 								</li>
 											
 								<li id="busqueda">
@@ -891,10 +891,10 @@
 			<div id="menu-usuario" class="col-xs-12 col-sm-10">
 			    <ul>
 												<div id="lOut">
-								<li id="li-login" onclick="$('#myModal').modal('show'); ver();">
+								<li id="li-login" onclick="window.location = 'index.html' ">
 									<a name=""><label>LOGIN</label> &nbsp;<span id="span-login">|</span>&nbsp;</a>
 								</li>
-								<li id="li-crear" onclick="$('#myModal2').modal('show'); ver();"><!-- creaCuenta(); --><!-- $('#myModal2').modal('show'); ver(); -->  
+								<li id="li-crear" onclick="window.location = 'crear_cuenta.html' "><!-- creaCuenta(); --><!-- $('#myModal2').modal('show'); ver(); -->  
 									<a name=""><label >CREAR CUENTA</label></a><!-- style="color: #ec1568 !important;" -->
 								</li>
 							</div>
@@ -2137,7 +2137,7 @@
 				});
 				
 				function prox_eventos(){
-					window.location = 'http://www.ticketfacil.ec/ticket2/index.php?c=1';
+					window.location = 'http://www.ticketfacil.ec/ticket2/index.html?c=1';
 				}
 				
 				$('#btn-menu').click(function(){
@@ -2175,6 +2175,7 @@
 				});
 				
 				$( document ).ready(function() {
+					saberSesion();
 					$('#bs-example-navbar-collapse-1').addClass('ocultar');
 					
 					var descripcion = $('#des').val();
