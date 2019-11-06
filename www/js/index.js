@@ -13,7 +13,7 @@
 		
 		tx.executeSql('CREATE TABLE IF NOT EXISTS localidad (id integer primary key AUTOINCREMENT,idLocalidad integer UNIQUE ,idConcierto integer , strDescripcionL text,doublePrecioL text)');
 		
-		tx.executeSql('CREATE TABLE IF NOT EXISTS cliente (id integer primary key AUTOINCREMENT,idcliente integer UNIQUE,nombre text , email text,cedula text)');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS cliente (id integer primary key AUTOINCREMENT,idcliente integer UNIQUE,nombre text , email text,cedula text , password text, celular text , ciudad text , direccion text , f_nac text)');   
 		
 		
 	}
@@ -40,6 +40,29 @@
 					var nombre = row.nombre;
 					if(cuantos > 0){
 						console.log('ya esta el cliente : ' + nombre);
+						$('#menu2').html('\
+											<div class="col-sm-1"></div>\
+											<div id="menu-usuario" class="col-xs-12 col-sm-10">\
+												<ul>\
+													<li class="dropdown" style="width: 100%; text-align: left;">\
+														<a id="menu-usu" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">\
+															Hola <span id = "nombre_usuario">'+nombre+'</span>\
+															<span class="caret"></span>\
+														</a>    \
+														<ul id="sub-menu-menu-usu" class="dropdown-menu" style="text-align: right; font-size: 12px;">\
+															<li role="separator" class="divider"></li>\
+															<li><a href="perfil.html">EDITAR PERFIL</a></li>\
+															<li role="separator" class="divider"></li>\
+															<li><a href="pagos_realizados.html">PAGOS</a></li>\
+															<li role="separator" class="divider"></li>\
+															<li><a class="logout" href="salir.html">LOG OUT</a></li>\
+															<li role="separator" class="divider"></li>\
+														</ul>\
+													</li>\
+												</ul>\
+											</div>	\
+											<div class="col-sm-1"></div>'
+										);
 					}else{
 						console.log('no hay cliente');
 						$('#myModal').modal('show');
@@ -48,10 +71,11 @@
 			},errorCB,successCB);
 		});
 	}
-	function insertaCliente(idcliente,nombre,email,cedula){
+	function insertaCliente(idcliente,nombre,email,cedula,dir,tel,contrasena){
+		console.log("INSERT OR IGNORE INTO cliente (idcliente ,nombre,email,cedula,direccion , celular , password) VALUES ('"+idcliente+"','"+nombre+"','"+email+"','"+cedula+"','"+dir+"','"+tel+"','"+contrasena+"')");
 		var db = window.openDatabase("Database", "1.0", "TicketMobileWeb", 200000);
 		db.transaction(function(tx){
-			tx.executeSql("INSERT OR IGNORE INTO cliente (idcliente ,nombre,email,cedula) VALUES (?,?,?,?)",[idcliente,nombre,email,cedula]);
+			tx.executeSql("INSERT OR IGNORE INTO cliente (idcliente ,nombre,email,cedula,direccion , celular , password) VALUES (?,?,?,?,?,?,?)",[idcliente,nombre,email,cedula,dir,tel,contrasena]);
 			setTimeout("$('#btn1').fadeIn(); $('#bienvenida').modal('show');",1000);
 		},errorCB,successCB);
 	}
